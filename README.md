@@ -1,4 +1,4 @@
-# Centrifuge RWA
+# Centrifuge RWA Terminal
 
 Every Centrifuge pool and token: supply, price, TVL and investor flows, built on the Datum data platform.
 

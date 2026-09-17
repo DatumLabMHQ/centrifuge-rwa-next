@@ -12,7 +12,7 @@ function Trend({ change }: { change: number }) { const Icon = change >= 0 ? Tren
 export function CfCards({ kpis: k, asOf }: { kpis: CfOverview['kpis']; asOf: string }) {
   const stats: Stat[] = [
     { label: 'TVL', value: usd(k.tvl), change: k.tvlChange7d, headline: k.tvlChange7d >= 0 ? 'Growing over the week' : 'Shrinking over the week', detail: `${count(k.tokens)} tokens in ${count(k.pools)} pools, as of ${asOf}` },
-    { label: `Net flow, ${config.flowDays} days`, value: `${k.net >= 0 ? '+' : ''}${usd(k.net)}`, headline: k.net >= 0 ? 'Money coming in' : 'Money going out', detail: `${usd(k.deposits)} deposited, ${usd(k.redemptions)} redeemed` },
+    { label: `Net flow, ${config.flowDays} days`, value: `${k.net < 0 ? '-' : '+'}${usd(Math.abs(k.net))}`, headline: k.net >= 0 ? 'Money coming in' : 'Money going out', detail: `${usd(k.deposits)} deposited, ${usd(k.redemptions)} redeemed` },
     { label: `Deposits, ${config.flowDays} days`, value: usd(k.deposits), headline: `${k.transactions.toLocaleString('en-US')} investor transactions`, detail: 'Executed and claimed deposits, every token' },
     { label: `Redemptions, ${config.flowDays} days`, value: usd(k.redemptions), headline: k.redemptions > k.deposits ? 'Redemptions above deposits' : 'Deposits above redemptions', detail: 'Executed and claimed redemptions, every token' },
   ];

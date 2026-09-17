@@ -7,7 +7,7 @@ export const config = {
   slug: 'centrifuge-rwa-next',
   // The name this dashboard's brief, product note and reconciliation rows use in datum-context.
   context: 'centrifuge-rwa',
-  title: 'Centrifuge RWA',
+  title: 'Centrifuge RWA Terminal',
   description: 'Every Centrifuge pool and token: supply, price, TVL and investor flows, read hourly from the Datum data platform.',
   // The question the overview answers. Pages lead with it.
   question: 'How much tokenized credit sits in Centrifuge pools, and is money coming in or going out?',

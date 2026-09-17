@@ -43,7 +43,7 @@ export default async function TokenPage({ params }: { params: Promise<{ id: stri
             {stat('TVL', usd(t.tvl), 'supply times price')}
             {stat('Price', price(t.price), 'NAV per token')}
             {stat('Supply', count(t.supply), 'tokens outstanding')}
-            {stat('Net flow, 90 days', `${net >= 0 ? '+' : ''}${usd(net)}`, `${d.flows.length} active days`)}
+            {stat('Net flow, 90 days', `${net < 0 ? '-' : '+'}${usd(Math.abs(net))}`, `${d.flows.length} active days`)}
           </div>
           <Card>
             <CardHeader><CardTitle>TVL</CardTitle><CardDescription>Supply times price per day, since {first?.day ?? 'the first snapshot'}. Growth is issuance for a NAV-stable fund token.</CardDescription></CardHeader>

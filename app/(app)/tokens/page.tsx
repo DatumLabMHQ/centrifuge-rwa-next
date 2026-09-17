@@ -14,7 +14,7 @@ export default async function Tokens() {
   return (
     <>
       <PageHeader eyebrow="Tokens" question="Which tokens exist, what are they worth, and where do the numbers come from?"
-        answer={<>{count(d.tokens.length)} tokens across {count(d.pools.length)} pools as of {d.asOf}, {usd(d.kpis.tvl)} in total. {count(ours)} of them carry our own hourly read; the rest are the API&apos;s backfilled daily history.</>} />
+        answer={<>{count(d.tokens.length)} tokens across {count(d.pools.length)} pools as of {d.asOf}, {usd(d.kpis.tvl)} in total. {ours === d.tokens.length ? 'Every one of them carries our own hourly read.' : `${count(ours)} of them carry our own hourly read; the rest are the API's backfilled daily history.`}</>} />
       <div className="px-4 lg:px-6">
         <Card>
           <CardHeader><CardTitle>TVL by token</CardTitle><CardDescription>The eight largest. JAAA and JTRSY are most of Centrifuge; the deRWA tokens are their DeFi-wrapped forms.</CardDescription></CardHeader>

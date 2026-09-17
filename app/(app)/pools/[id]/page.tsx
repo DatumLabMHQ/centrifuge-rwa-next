@@ -41,7 +41,7 @@ export default async function PoolPage({ params }: { params: Promise<{ id: strin
           <div className="grid grid-cols-2 gap-4 @2xl/main:grid-cols-4">
             {stat('TVL', usd(p.tvl), 'sum of the tokens')}
             {stat('Tokens', count(p.tokens), 'tranches or share classes')}
-            {stat('Net flow, 90 days', `${net >= 0 ? '+' : ''}${usd(net)}`, `${d.flows.length} active days`)}
+            {stat('Net flow, 90 days', `${net < 0 ? '-' : '+'}${usd(Math.abs(net))}`, `${d.flows.length} active days`)}
             {stat('Largest token', d.tokens[0]?.symbol ?? 'n/a', d.tokens[0] ? usd(d.tokens[0].tvl) : '')}
           </div>
           <DetailCharts asOf={d.asOf} history={d.history} historySeries={[{ key: 'tvl', label: 'TVL' }]} historyTitle="TVL" historyDescription="The pool's tokens, supply times price, summed per day." />
